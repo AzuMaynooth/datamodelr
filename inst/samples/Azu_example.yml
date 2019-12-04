@@ -1,0 +1,61 @@
+# data model segments
+- segment: &md Master data
+- segment: &tran climatological variables
+
+
+
+# Tables and columns
+- table: Climate_variables
+  segment: *md
+  columns:
+    Variable ID: {key: yes}
+    Name:
+    
+    
+ - table: Stations_details_Irish_Grid
+  display: accent1
+  segment: *md
+  columns:
+    Station ID: {key: yes}
+    Station_Name:
+    County:
+    Easting:
+    Northing:
+    Latitude:  
+    Longitude:
+    Open:
+    Minute:
+    Hourly:
+    Daily:
+    Monthly:
+    Variable ID:  {key: yes, ref: Climate_variables}
+    
+
+- table: Minute_Rainfall
+  segment: *tran
+  columns:
+    Station ID: {key: yes, ref: Stations_details_Irish_Grid}
+    Date: 
+    Rainfal (mm):
+
+table: Hourly_Rainfall
+  segment: *tran
+  columns:
+    Station ID: {key: yes, ref: Stations_details_Irish_Grid}
+    Date: 
+    Rainfal (mm):
+    
+ table: Daily_Rainfall
+  segment: *tran
+  columns:
+    Station ID: {key: yes, ref: Stations_details_Irish_Grid}
+    Date: 
+    Rainfal (mm):   
+    
+table: Monthly_Rainfall
+  segment: *tran
+  columns:
+    Station ID: {key: yes, ref: Stations_details_Irish_Grid}
+    Date: 
+    Rainfal (mm):    
+
